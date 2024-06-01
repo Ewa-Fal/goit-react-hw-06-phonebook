@@ -1,8 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { changeFilter } from './FilterActions';
 
-const filter = createReducer('', {
-  [changeFilter]: (state, action) => action.payload,
+const initialState = ''; // Domyślny stan
+
+const filterReducer = createReducer(initialState, (builder) => {
+  builder.addCase(changeFilter, (state, action) => action.payload);
 });
 
-export default filter;
+export default filterReducer;
+
